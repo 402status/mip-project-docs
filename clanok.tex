@@ -1,124 +1,100 @@
-% Metódy inžinierskej práce
-
-\documentclass[10pt,twoside,slovak,a4paper]{article}
-
-\usepackage[slovak]{babel}
-%\usepackage[T1]{fontenc}
-\usepackage[IL2]{fontenc} % lepšia sadzba písmena Ľ než v T1
+\documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{url} % príkaz \url na formátovanie URL
-\usepackage{hyperref} % odkazy v texte budú aktívne (pri niektorých triedach dokumentov spôsobuje posun textu)
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
 
-\usepackage{cite}
-%\usepackage{times}
+% Manual margins instead of the geometry package (no external package needed)
+\setlength{\topmargin}{-1.5cm}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
 
-\pagestyle{headings}
-
-\title{Názov\thanks{Semestrálny projekt v predmete Metódy inžinierskej práce, ak. rok 2015/16, vedenie: Meno Priezvisko}} % meno a priezvisko vyučujúceho na cvičeniach
-
-\author{Meno Priezvisko\\[2pt]
-	{\small Slovenská technická univerzita v Bratislave}\\
-	{\small Fakulta informatiky a informačných technológií}\\
-	{\small \texttt{...@stuba.sk}}
-	}
-
-\date{\small 30. september 2015} % upravte
+\title{\textbf{Inteligentný systém na automatizované testovanie bezpečnosti webových aplikácií pomocou veľkých jazykových modelov}}
+\author{}
+\date{}
 
 
 
 \begin{document}
-
 \maketitle
+\vspace{-1cm}
 
-\begin{abstract}
-\ldots
-\end{abstract}
+\noindent\textit{Využitie veľkých jazykových modelov a AI agentov na automatizované bezpečnostné testovanie webových aplikácií.}
 
-
-
-\section{Úvod}
-
-Motivujte čitateľa a vysvetlite, o čom píšete. Úvod sa väčšinou nedelí na časti.
-
-Uveďte explicitne štruktúru článku. Tu je nejaký príklad.
-Základný problém, ktorý bol naznačený v úvode, je podrobnejšie vysvetlený v časti~\ref{nejaka}.
-Dôležité súvislosti sú uvedené v častiach~\ref{dolezita} a~\ref{dolezitejsia}.
-Záverečné poznámky prináša časť~\ref{zaver}.
+\bigskip
 
 
+\begin{center}
+{\LARGE \textbf{AI-PENTEST}}\\[3mm]
+Kyrylo Bukhanets, Artur Toba, Maksym Tomkevych , Andrii Tsybulskyi\\
+FIIT STU\\
+bukhanets@stuba.sk, xtoba@stuba.sk , xtomkevych@stuba.sk , xtribulskyi@stuba.sk\\
+4.\ 10.\ 2026
+\end{center}
 
-\section{Nejaká časť} \label{nejaka}
+\section*{Smer (oblasť výskumu)}
 
-Z obr.~\ref{f:rozhod} je všetko jasné. 
+\noindent Aplikovaný výskum v oblasti umelej inteligencie a kybernetickej bezpečnosti.
 
-\begin{figure*}[tbh]
-\centering
-%\includegraphics[scale=1.0]{diagram.pdf}
-Aj text môže byť prezentovaný ako obrázok. Stane sa z neho označný plávajúci objekt. Po vytvorení diagramu zrušte znak \texttt{\%} pred príkazom \verb|\includegraphics| označte tento riadok ako komentár (tiež pomocou znaku \texttt{\%}).
-\caption{Rozhodujúci argument.}
-\label{f:rozhod}
-\end{figure*}
+\section*{Čo presne budeme robiť}
 
+\noindent
+Cieľom nie je iba to, že ,,neurónová sieť hľadá hackerské zraniteľnosti``. Vytvárame \textbf{Web Pentest Harness} -- špecializované prostredie, v ktorom AI agent dostane webovú aplikáciu a pokúsi sa samostatne vykonať jej kontrolované bezpečnostné testovanie.
 
+\medskip
+\noindent\textbf{Princíp:}
 
-\section{Iná časť} \label{ina}
+\begin{center}
+\textit{Webová aplikácia $\rightarrow$ AI agent $\rightarrow$ Pentest Harness $\rightarrow$ testy $\rightarrow$ zistené zraniteľnosti $\rightarrow$ automatické vyhodnotenie}
+\end{center}
 
-Základným problémom je teda\ldots{} Najprv sa pozrieme na nejaké vysvetlenie (časť~\ref{ina:nejake}), a potom na ešte nejaké (časť~\ref{ina:nejake}).\footnote{Niekedy môžete potrebovať aj poznámku pod čiarou.}
-
-Môže sa zdať, že problém vlastne nejestvuje\cite{Coplien:MPD}, ale bolo dokázané, že to tak nie je~\cite{Czarnecki:Staged, Czarnecki:Progress}. Napriek tomu, aj dnes na webe narazíme na všelijaké pochybné názory\cite{PLP-Framework}. Dôležité veci možno \emph{zdôrazniť kurzívou}.
-
-
-\subsection{Nejaké vysvetlenie} \label{ina:nejake}
-
-Niekedy treba uviesť zoznam:
-
+\noindent\textbf{Harness bude:}
 \begin{itemize}
-\item jedna vec
-\item druhá vec
-	\begin{itemize}
-	\item x
-	\item y
-	\end{itemize}
+\item poskytovať AI agentovi bezpečné testovacie prostredie;
+\item poskytovať mu nástroje na interakciu s webovou aplikáciou;
+\item zaznamenávať všetky akcie modelu;
+\item overovať, či nájdená zraniteľnosť skutočne existuje;
+\item hodnotiť úspešnosť agenta;
+\item zbierať výsledky na následné porovnanie rôznych AI modelov.
 \end{itemize}
 
-Ten istý zoznam, len číslovaný:
+\section*{Prečo je to dobrá téma}
+
+\noindent
+Ide o konkrétny inžiniersky problém: súčasné jazykové modely dokážu vykonávať zložité úlohy súvisiace s analýzou webových aplikácií, no chýba vhodné štandardizované prostredie na bezpečné a objektívne porovnávanie ich schopností v oblasti penetračného testovania. Navrhovaným riešením je práve vytvorenie Web Pentest Harness, ktorý umožní štandardizovane testovať a hodnotiť AI agentov na kontrolovaných webových zraniteľnostiach -- ide teda o skutočný aplikovaný výskum, nie len o ,,neurónovú sieť na hľadanie hackerských dier``.
+
+\section*{Anotácia}
+
+\noindent
+Súčasné veľké jazykové modely dokážu vykonávať zložité úlohy súvisiace s analýzou webových aplikácií, no v súčasnosti chýba vhodné štandardizované prostredie na bezpečné a objektívne porovnávanie ich schopností v oblasti penetračného testovania. Projekt AI-PENTEST preto navrhuje vytvoriť Web Pentest Harness -- kontrolované prostredie, v ktorom AI agent dostane webovú aplikáciu a pokúsi sa samostatne vykonať jej bezpečnostné testovanie. Harness poskytuje agentovi bezpečné testovacie prostredie aj nástroje na interakciu s aplikáciou, zaznamenáva všetky jeho akcie, overuje, či nájdená zraniteľnosť skutočne existuje (prostredníctvom kontrolovaného proof-of-concept overenia), vyhodnocuje úspešnosť agenta a zbiera výsledky na následné porovnanie viacerých AI modelov. Jadrom riešenia je kontajnerizovaná sada zámerne zraniteľných webových aplikácií so známymi triedami chýb (SQL injection, XSS, autentifikačné a autorizačné obchádzky, SSRF, IDOR, nesprávna konfigurácia a pod.), doplnená anotovanou databázou referenčných zraniteľností (ground truth) a automatizovaným hodnotiacim modulom počítajúcim metriky ako presnosť, úplnosť (recall), mieru falošne pozitívnych nálezov a čas potrebný na nájdenie a overenie zraniteľnosti. Agent pracuje výlučne v sieťovo izolovanom prostredí s riadenými povoleniami, čo umožňuje bezpečné a reprodukovateľné experimenty. Výstupom projektu bude otvorená infraštruktúra (harness + benchmark sada úloh rôznej obtiažnosti) a empirické porovnanie viacerých architektúr AI agentov z hľadiska efektivity, spoľahlivosti a typických zlyhaní. Projekt tak prispieva k zodpovednému a štandardizovanému hodnoteniu kybernetických schopností AI systémov.
+
+\section*{Právne zdroje}
 
 \begin{enumerate}
-\item jedna vec
-\item druhá vec
-	\begin{enumerate}
-	\item x
-	\item y
-	\end{enumerate}
+
+\item OWASP Foundation. \textit{Web Security Testing Guide v 4.2}. 2020.\\
+\url{https://owasp.org/www-project-web-security-testing-guide/}
+
+\item OWASP Foundation. \textit{The OWASP Web Security Testing Framework}. 2020.\\
+\url{https://wstg.owasp.org/stable/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework/}
+
+\item OWASP Foundation. \textit{OWASP WebGoat}.\\
+\url{https://owasp.org/www-project-webgoat/}
+
+\item National Institute of Standards and Technology. \textit{AI Measurement and Evaluation}. 2024.\\
+\url{https://www.nist.gov/ai-measurement-and-evaluation}
+
+\item National Institute of Standards and Technology. \textit{Building Evaluation Probes into Agentic AI}. 2026.\\
+\url{https://www.nist.gov/programs-projects/building-evaluation-probes-agentic-ai}
+
+\item Jensen, T., Przybocki, M., Kodwani, M., Greene, K., Hall, P., Amironesei, R., Greenberg, C. \textit{ARIA Evaluation Planning Manual: Elements of ARIA-Style AI Evaluations}. NIST AI 200-3. 2026.\\
+\url{https://doi.org/10.6028/NIST.AI.200-3}
+
 \end{enumerate}
 
+\end{document}
 
-\subsection{Ešte nejaké vysvetlenie} \label{ina:este}
-
-\paragraph{Veľmi dôležitá poznámka.}
-Niekedy je potrebné nadpisom označiť odsek. Text pokračuje hneď za nadpisom.
-
-
-
-\section{Dôležitá časť} \label{dolezita}
-
-
-
-
-\section{Ešte dôležitejšia časť} \label{dolezitejsia}
-
-
-
-
-\section{Záver} \label{zaver} % prípadne iný variant názvu
-
-
-
-%\acknowledgement{Ak niekomu chcete poďakovať\ldots}
-
-
-% týmto sa generuje zoznam literatúry z obsahu súboru literatura.bib podľa toho, na čo sa v článku odkazujete
-\bibliography{literatura}
-\bibliographystyle{plain} % prípadne alpha, abbrv alebo hociktorý iný
 \end{document}

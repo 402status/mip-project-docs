@@ -1,0 +1,29 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", margin=0.15, nodesep=0.35, ranksep=0.42, fontname="DejaVu Sans"];
+  node [shape=box, style="rounded,filled", fillcolor="#E8F1FB", color="#24527A", fontname="DejaVu Sans", fontsize=10, margin="0.16,0.09"];
+  edge [color="#37474F", fontname="DejaVu Sans", fontsize=9, arrowsize=0.75];
+
+  start [shape=circle, label="", width=0.22, fixedsize=true, fillcolor="#263238", color="#263238"];
+  app [label="Spustenie izolovanej\ntestovacej aplikácie"];
+  task [label="Odovzdanie úlohy\nAI agentovi"];
+  analyze [label="Analýza aplikácie\na voľba testu"];
+  safe [shape=diamond, label="Je akcia\npovolená?", style="filled", fillcolor="#FFF4CC", color="#B28704"];
+  block [label="Zablokovanie akcie\na zápis do logu", fillcolor="#FDECEC", color="#A63A3A"];
+  run [label="Vykonanie testu\ncez Pentest Harness"];
+  found [shape=diamond, label="Potenciálna\nzraniteľnosť?", style="filled", fillcolor="#FFF4CC", color="#B28704"];
+  validate [label="Kontrolované PoC\noverenie nálezu", fillcolor="#EAF7EA", color="#2F7D32"];
+  score [label="Výpočet metrík\na uloženie výsledku", fillcolor="#EAF7EA", color="#2F7D32"];
+  next [shape=diamond, label="Ďalší\ntest?", style="filled", fillcolor="#FFF4CC", color="#B28704"];
+  end [shape=doublecircle, label="", width=0.25, fixedsize=true, fillcolor="#263238", color="#263238"];
+
+  start -> app -> task -> analyze -> safe;
+  safe -> block [label="nie"];
+  safe -> run [label="áno"];
+  block -> next;
+  run -> found;
+  found -> validate [label="áno"];
+  found -> next [label="nie"];
+  validate -> score -> next;
+  next -> analyze [label="áno", constraint=false];
+  next -> end [label="nie"];
+}

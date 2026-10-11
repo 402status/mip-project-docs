@@ -1,100 +1,68 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
+% Metódy inžinierskej práce -- predbežná verzia prehľadového článku
+\documentclass[10pt,twoside,slovak,a4paper]{article}
+
+\usepackage[slovak]{babel}
 \usepackage[T1]{fontenc}
-\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
 
-% Manual margins instead of the geometry package (no external package needed)
-\setlength{\topmargin}{-1.5cm}
-\setlength{\oddsidemargin}{0cm}
-\setlength{\evensidemargin}{0cm}
-\setlength{\textwidth}{16cm}
-\setlength{\textheight}{24cm}
-\setlength{\headheight}{0cm}
-\setlength{\headsep}{0cm}
+\pagestyle{headings}
 
-\title{\textbf{Inteligentný systém na automatizované testovanie bezpečnosti webových aplikácií pomocou veľkých jazykových modelov}}
-\author{}
-\date{}
-
-
+\title{Využitie veľkých jazykových modelov pri automatizovanom testovaní bezpečnosti webových aplikácií\thanks{Predbežná verzia prehľadového článku v predmete Metódy inžinierskej práce, ak. rok 2026/27.}}
+\author{
+Kyrylo Bukhanets, Artur Toba, Maksym Tomkevych, Andrii Tsybulskyi\\[2pt]
+{\small Slovenská technická univerzita v Bratislave}\\
+{\small Fakulta informatiky a informačných technológií}\\
+{\small \texttt{bukhanets@stuba.sk, xtoba@stuba.sk, xtomkevych@stuba.sk, xtribulskyi@stuba.sk}}
+}
+\date{\small 11. október 2026}
 
 \begin{document}
 \maketitle
-\vspace{-1cm}
 
-\noindent\textit{Využitie veľkých jazykových modelov a AI agentov na automatizované bezpečnostné testovanie webových aplikácií.}
+\begin{abstract}
+Veľké jazykové modely dokážu plánovať a vykonávať úlohy spojené s analýzou webových aplikácií, ich výsledky však treba hodnotiť bezpečne, reprodukovateľne a podľa jednotných kritérií. Článok poskytne prehľad existujúcich prístupov k automatizovanému bezpečnostnému testovaniu a k hodnoteniu agentných systémov. Osobitná pozornosť bude venovaná návrhu prostredia Web Pentest Harness, v ktorom AI agent pracuje s izolovanými zraniteľnými aplikáciami, všetky jeho akcie sa zaznamenávajú a nálezy sa overujú voči referenčnej databáze zraniteľností. Porovnanie bude založené na metrikách presnosti, úplnosti, miery falošne pozitívnych nálezov a času potrebného na nájdenie a overenie zraniteľnosti.
+\end{abstract}
 
-\bigskip
+\section{Úvod}\label{uvod}
+Článok sa zameria na možnosti a obmedzenia veľkých jazykových modelov pri automatizovanom testovaní bezpečnosti webových aplikácií. Východiskom budú odporúčania OWASP pre testovanie webovej bezpečnosti~\cite{OWASP-WSTG} a požiadavky na systematické hodnotenie systémov umelej inteligencie~\cite{NIST-AIME,NIST-ARIA}.
 
+\section{Súčasný stav v oblasti}\label{sucasny-stav}
+Táto časť porovná tradičné automatizované bezpečnostné nástroje, prístupy založené na veľkých jazykových modeloch a agentné riešenia. Kategórie testovaných zraniteľností budú vychádzať najmä z OWASP Top 10~\cite{OWASP-Top10}.
 
-\begin{center}
-{\LARGE \textbf{AI-PENTEST}}\\[3mm]
-Kyrylo Bukhanets, Artur Toba, Maksym Tomkevych , Andrii Tsybulskyi\\
-FIIT STU\\
-bukhanets@stuba.sk, xtoba@stuba.sk , xtomkevych@stuba.sk , xtribulskyi@stuba.sk\\
-4.\ 10.\ 2026
-\end{center}
+\section{Návrh Web Pentest Harness}\label{navrh}
+Navrhované riešenie oddelí rozhodovanie AI agenta od nástrojov, testovanej aplikácie a hodnotiaceho modulu. Architektúru a tok údajov znázorňuje obr.~\ref{fig:architektura}.
 
-\section*{Smer (oblasť výskumu)}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.98\textwidth]{diagram-architektura.pdf}
+  \caption{Navrhovaná architektúra prostredia Web Pentest Harness.}
+  \label{fig:architektura}
+\end{figure}
 
-\noindent Aplikovaný výskum v oblasti umelej inteligencie a kybernetickej bezpečnosti.
+\section{Bezpečný priebeh experimentu}\label{bezpecnost}
+Experimenty budú prebiehať výlučne v izolovanom prostredí so zámerne zraniteľnými aplikáciami, napríklad OWASP WebGoat~\cite{OWASP-WebGoat}. Každá akcia agenta sa pred vykonaním skontroluje, zaznamená a prípadný nález sa overí kontrolovaným proof-of-concept postupom podľa obr.~\ref{fig:priebeh}.
 
-\section*{Čo presne budeme robiť}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=0.72\textheight,keepaspectratio]{diagram-priebeh.pdf}
+  \caption{Diagram aktivít bezpečnostného testovania vytvorený v UMLet/UMLetino.}
+  \label{fig:priebeh}
+\end{figure}
 
-\noindent
-Cieľom nie je iba to, že ,,neurónová sieť hľadá hackerské zraniteľnosti``. Vytvárame \textbf{Web Pentest Harness} -- špecializované prostredie, v ktorom AI agent dostane webovú aplikáciu a pokúsi sa samostatne vykonať jej kontrolované bezpečnostné testovanie.
+\section{Metodika hodnotenia}\label{metodika}
+Hodnotenie bude porovnávať nálezy agenta s referenčnou databázou známych zraniteľností. Sledované budú presnosť, úplnosť, miera falošne pozitívnych nálezov, čas do nájdenia chyby a úspešnosť jej kontrolovaného overenia.
 
-\medskip
-\noindent\textbf{Princíp:}
+\section{Diskusia a obmedzenia}\label{diskusia}
+Diskusia sa bude venovať reprodukovateľnosti experimentov, závislosti výsledkov od konkrétneho modelu a nástrojov, riziku falošných nálezov a bezpečnostným i etickým hraniciam testovania.
 
-\begin{center}
-\textit{Webová aplikácia $\rightarrow$ AI agent $\rightarrow$ Pentest Harness $\rightarrow$ testy $\rightarrow$ zistené zraniteľnosti $\rightarrow$ automatické vyhodnotenie}
-\end{center}
+\section{Záver}\label{zaver}
+Záver zhrnie zistenia prehľadu a vyhodnotí, do akej miery môže štandardizovaný Web Pentest Harness podporiť objektívne porovnávanie AI agentov.
 
-\noindent\textbf{Harness bude:}
-\begin{itemize}
-\item poskytovať AI agentovi bezpečné testovacie prostredie;
-\item poskytovať mu nástroje na interakciu s webovou aplikáciou;
-\item zaznamenávať všetky akcie modelu;
-\item overovať, či nájdená zraniteľnosť skutočne existuje;
-\item hodnotiť úspešnosť agenta;
-\item zbierať výsledky na následné porovnanie rôznych AI modelov.
-\end{itemize}
-
-\section*{Prečo je to dobrá téma}
-
-\noindent
-Ide o konkrétny inžiniersky problém: súčasné jazykové modely dokážu vykonávať zložité úlohy súvisiace s analýzou webových aplikácií, no chýba vhodné štandardizované prostredie na bezpečné a objektívne porovnávanie ich schopností v oblasti penetračného testovania. Navrhovaným riešením je práve vytvorenie Web Pentest Harness, ktorý umožní štandardizovane testovať a hodnotiť AI agentov na kontrolovaných webových zraniteľnostiach -- ide teda o skutočný aplikovaný výskum, nie len o ,,neurónovú sieť na hľadanie hackerských dier``.
-
-\section*{Anotácia}
-
-\noindent
-Súčasné veľké jazykové modely dokážu vykonávať zložité úlohy súvisiace s analýzou webových aplikácií, no v súčasnosti chýba vhodné štandardizované prostredie na bezpečné a objektívne porovnávanie ich schopností v oblasti penetračného testovania. Projekt AI-PENTEST preto navrhuje vytvoriť Web Pentest Harness -- kontrolované prostredie, v ktorom AI agent dostane webovú aplikáciu a pokúsi sa samostatne vykonať jej bezpečnostné testovanie. Harness poskytuje agentovi bezpečné testovacie prostredie aj nástroje na interakciu s aplikáciou, zaznamenáva všetky jeho akcie, overuje, či nájdená zraniteľnosť skutočne existuje (prostredníctvom kontrolovaného proof-of-concept overenia), vyhodnocuje úspešnosť agenta a zbiera výsledky na následné porovnanie viacerých AI modelov. Jadrom riešenia je kontajnerizovaná sada zámerne zraniteľných webových aplikácií so známymi triedami chýb (SQL injection, XSS, autentifikačné a autorizačné obchádzky, SSRF, IDOR, nesprávna konfigurácia a pod.), doplnená anotovanou databázou referenčných zraniteľností (ground truth) a automatizovaným hodnotiacim modulom počítajúcim metriky ako presnosť, úplnosť (recall), mieru falošne pozitívnych nálezov a čas potrebný na nájdenie a overenie zraniteľnosti. Agent pracuje výlučne v sieťovo izolovanom prostredí s riadenými povoleniami, čo umožňuje bezpečné a reprodukovateľné experimenty. Výstupom projektu bude otvorená infraštruktúra (harness + benchmark sada úloh rôznej obtiažnosti) a empirické porovnanie viacerých architektúr AI agentov z hľadiska efektivity, spoľahlivosti a typických zlyhaní. Projekt tak prispieva k zodpovednému a štandardizovanému hodnoteniu kybernetických schopností AI systémov.
-
-\section*{Právne zdroje}
-
-\begin{enumerate}
-
-\item OWASP Foundation. \textit{Web Security Testing Guide v 4.2}. 2020.\\
-\url{https://owasp.org/www-project-web-security-testing-guide/}
-
-\item OWASP Foundation. \textit{The OWASP Web Security Testing Framework}. 2020.\\
-\url{https://wstg.owasp.org/stable/3-The_OWASP_Testing_Framework/0-The_Web_Security_Testing_Framework/}
-
-\item OWASP Foundation. \textit{OWASP WebGoat}.\\
-\url{https://owasp.org/www-project-webgoat/}
-
-\item National Institute of Standards and Technology. \textit{AI Measurement and Evaluation}. 2024.\\
-\url{https://www.nist.gov/ai-measurement-and-evaluation}
-
-\item National Institute of Standards and Technology. \textit{Building Evaluation Probes into Agentic AI}. 2026.\\
-\url{https://www.nist.gov/programs-projects/building-evaluation-probes-agentic-ai}
-
-\item Jensen, T., Przybocki, M., Kodwani, M., Greene, K., Hall, P., Amironesei, R., Greenberg, C. \textit{ARIA Evaluation Planning Manual: Elements of ARIA-Style AI Evaluations}. NIST AI 200-3. 2026.\\
-\url{https://doi.org/10.6028/NIST.AI.200-3}
-
-\end{enumerate}
-
-\end{document}
-
+\bibliographystyle{plain}
+\bibliography{literatura}
 \end{document}

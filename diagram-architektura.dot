@@ -1,0 +1,26 @@
+digraph G {
+  graph [rankdir=LR, bgcolor="white", margin=0.15, nodesep=0.42, ranksep=0.55, fontname="DejaVu Sans"];
+  node [shape=box, style="rounded,filled", fillcolor="#EEF5FC", color="#24527A", fontname="DejaVu Sans", fontsize=10, margin="0.16,0.10"];
+  edge [color="#455A64", fontname="DejaVu Sans", fontsize=9, arrowsize=0.75];
+
+  agent [label="AI agent\n(LLM + plánovanie)", fillcolor="#E5E0F7", color="#5B4B8A"];
+  harness [label="Web Pentest Harness\nriadenie experimentu", fillcolor="#DDEFFC", color="#1E6A8D"];
+  tools [label="Nástroje\nHTTP klient • prehliadač\nskener • terminál"];
+  app [label="Izolovaná zraniteľná\nwebová aplikácia", fillcolor="#FDECEC", color="#A63A3A"];
+  log [label="Záznam akcií\na odpovedí"];
+  truth [label="Referenčná databáza\nzraniteľností (ground truth)", fillcolor="#FFF4CC", color="#B28704"];
+  verify [label="Validátor nálezov\na PoC overenie", fillcolor="#EAF7EA", color="#2F7D32"];
+  metrics [label="Hodnotiaci modul\npresnosť • recall • FPR • čas", fillcolor="#EAF7EA", color="#2F7D32"];
+  report [label="Výsledky a porovnanie\nAI modelov", fillcolor="#E5E0F7", color="#5B4B8A"];
+
+  agent -> harness [label="plán / požiadavka"];
+  harness -> tools [label="povolené akcie"];
+  tools -> app [dir=both, label="test / odpoveď"];
+  harness -> log [label="udalosti"];
+  log -> verify;
+  truth -> verify [label="očakávané nálezy"];
+  verify -> metrics [label="potvrdené nálezy"];
+  truth -> metrics;
+  metrics -> report;
+  report -> agent [style=dashed, label="spätná väzba", constraint=false];
+}

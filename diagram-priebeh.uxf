@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>10</zoom_level>
+  <element><id>UMLSpecialState</id><coordinates><x>292</x><y>20</y><w>20</w><h>20</h></coordinates><panel_attributes>type=initial</panel_attributes><additional_attributes/></element>
+  <element><id>UMLState</id><coordinates><x>210</x><y>70</y><w>185</w><h>45</h></coordinates><panel_attributes>Spustenie izolovanej
+testovacej aplikácie
+bg=blue</panel_attributes><additional_attributes/></element>
+  <element><id>UMLState</id><coordinates><x>210</x><y>145</y><w>185</w><h>45</h></coordinates><panel_attributes>Odovzdanie úlohy
+AI agentovi
+bg=blue</panel_attributes><additional_attributes/></element>
+  <element><id>UMLState</id><coordinates><x>210</x><y>220</y><w>185</w><h>45</h></coordinates><panel_attributes>Analýza aplikácie
+a voľba testu
+bg=blue</panel_attributes><additional_attributes/></element>
+  <element><id>UMLSpecialState</id><coordinates><x>267</x><y>300</y><w>70</w><h>55</h></coordinates><panel_attributes>type=decision
+Je akcia
+povolená?</panel_attributes><additional_attributes/></element>
+  <element><id>UMLState</id><coordinates><x>30</x><y>390</y><w>175</w><h>50</h></coordinates><panel_attributes>Zablokovanie akcie
+a zápis do logu
+bg=red</panel_attributes><additional_attributes/></element>
+  <element><id>UMLState</id><coordinates><x>400</x><y>390</y><w>175</w><h>50</h></coordinates><panel_attributes>Vykonanie testu cez
+Pentest Harness
+bg=green</panel_attributes><additional_attributes/></element>
+  <element><id>UMLSpecialState</id><coordinates><x>452</x><y>480</y><w>70</w><h>55</h></coordinates><panel_attributes>type=decision
+Potenciálna
+zraniteľnosť?</panel_attributes><additional_attributes/></element>
+  <element><id>UMLState</id><coordinates><x>400</x><y>575</y><w>175</w><h>50</h></coordinates><panel_attributes>Kontrolované PoC
+overenie nálezu
+bg=green</panel_attributes><additional_attributes/></element>
+  <element><id>UMLState</id><coordinates><x>400</x><y>665</y><w>175</w><h>50</h></coordinates><panel_attributes>Výpočet metrík a
+uloženie výsledku
+bg=green</panel_attributes><additional_attributes/></element>
+  <element><id>UMLSpecialState</id><coordinates><x>267</x><y>755</y><w>70</w><h>55</h></coordinates><panel_attributes>type=decision
+Ďalší
+test?</panel_attributes><additional_attributes/></element>
+  <element><id>UMLSpecialState</id><coordinates><x>292</x><y>850</y><w>20</w><h>20</h></coordinates><panel_attributes>type=final</panel_attributes><additional_attributes/></element>
+  <element><id>Relation</id><coordinates><x>292</x><y>30</y><w>20</w><h>50</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>292</x><y>105</y><w>20</w><h>50</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>292</x><y>180</y><w>20</w><h>50</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;40</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>292</x><y>255</y><w>20</w><h>55</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;45</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>195</x><y>317</y><w>82</w><h>108</h></coordinates><panel_attributes>lt=&lt;-
+m1=nie</panel_attributes><additional_attributes>72;10;10;10;10;98</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>327</x><y>317</y><w>83</w><h>108</h></coordinates><panel_attributes>lt=&lt;-
+m1=áno</panel_attributes><additional_attributes>10;10;73;10;73;98</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>477</x><y>430</y><w>20</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>477</x><y>525</y><w>20</w><h>60</h></coordinates><panel_attributes>lt=&lt;-
+m1=áno</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>477</x><y>615</y><w>20</w><h>60</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>327</x><y>690</y><w>83</w><h>105</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>73;10;73;95;10;95</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>107</x><y>430</y><w>170</w><h>365</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;10;355;160;355</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>327</x><y>507</y><w>160</w><h>288</h></coordinates><panel_attributes>lt=&lt;-
+m1=nie</panel_attributes><additional_attributes>150;10;150;278;10;278</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>292</x><y>800</y><w>20</w><h>60</h></coordinates><panel_attributes>lt=&lt;-
+m1=nie</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element>
+  <element><id>Relation</id><coordinates><x>292</x><y>242</y><w>220</w><h>523</h></coordinates><panel_attributes>lt=&lt;-
+m1=áno</panel_attributes><additional_attributes>10;513;210;513;210;10;110;10</additional_attributes></element>
+</diagram>

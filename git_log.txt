@@ -1,3 +1,15 @@
+commit 704c8f627d881eca1f570514020e85b79ef547f6
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 19:02:47 2026 +0100
+
+    MIP-23 Usporiadanie struktury repozitara (zameranie, clanok, formulare, jira), README a .gitignore
+
+commit a6a6a095b21f55802deff58af368aee54405b0c9
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:57:34 2026 +0100
+
+    MIP-18 Aktualizacia git_log.txt
+
 commit 84db37f28e7b4378848beaa1f1ca35213ab72ae3
 Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
 Date:   Sun Nov 1 18:57:34 2026 +0100

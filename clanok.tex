@@ -43,6 +43,13 @@ Táto časť porovná tradičné automatizované bezpečnostné nástroje, prís
 \subsection{Tradičné automatizované nástroje}\label{tradicne}
 Statická analýza (SAST) skúma zdrojový kód bez jeho spustenia a dokáže včas upozorniť na nebezpečné konštrukcie, často však hlási veľa falošne pozitívnych nálezov a nemá k dispozícii kontext nasadenia. Dynamická analýza (DAST) testuje bežiacu aplikáciu ako čiernu skrinku: prechádza jej stránky, posiela upravené požiadavky a vyhodnocuje odpovede. Typickým voľne dostupným nástrojom je ZAP~\cite{ZAP}. Už staršia porovnávacia štúdia ukázala, že čiernoskrinkové skenery spoľahlivo nachádzajú jednoduché reflektované chyby, no zlyhávajú pri zraniteľnostiach viazaných na stav aplikácie, viacstupňové formuláre alebo logiku autorizácie~\cite{Doupe-Johnny}. Práve tieto prípady dnes rieši najmä človek -- penetračný tester.
 
+\subsection{Prístupy založené na veľkých jazykových modeloch}\label{llm}
+Prvé práce využívali LLM ako asistenta, ktorý testerovi radí ďalší krok. Nástroj PentestGPT rozdeľuje prácu do samostatných modulov na uvažovanie, generovanie príkazov a spracovanie výstupov, čím zmierňuje stratu kontextu pri dlhých testoch~\cite{Deng-PentestGPT}. Autori zároveň ukázali, že modely dobre zvládajú jednotlivé podúlohy, no bez štruktúry sa strácajú v celkovom pláne testu.
+
+Ďalším krokom sú autonómni agenti, ktorí sami volajú nástroje, napríklad prehliadač alebo terminál, a podľa výsledkov upravujú svoj postup. Fang a kol. demonštrovali, že agent postavený na silnom modeli dokáže v izolovanom prostredí bez predchádzajúcej znalosti zraniteľnosti zneužiť viaceré typy chýb webových aplikácií vrátane SQL injection, zatiaľ čo slabšie modely v rovnakej úlohe zlyhávali~\cite{Fang-HackWebsites}.
+
+Na porovnávanie agentov vznikajú benchmarky. Cybench zhromažďuje profesionálne úlohy typu \emph{capture the flag} a delí ich na menšie podúlohy, aby bolo možné merať aj čiastočný pokrok agenta~\cite{Zhang-Cybench}. Takéto benchmarky sa však zameriavajú na nájdenie vlajky, nie na úplnosť a presnosť nálezov v reálnej webovej aplikácii, čo je medzera, ktorú má pokryť navrhovaný Web Pentest Harness.
+
 \section{Návrh Web Pentest Harness}\label{navrh}
 Navrhované riešenie oddelí rozhodovanie AI agenta od nástrojov, testovanej aplikácie a hodnotiaceho modulu. Architektúru a tok údajov znázorňuje obr.~\ref{fig:architektura}.
 

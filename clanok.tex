@@ -31,6 +31,12 @@ Veľké jazykové modely dokážu plánovať a vykonávať úlohy spojené s ana
 \section{Úvod}\label{uvod}
 Článok sa zameria na možnosti a obmedzenia veľkých jazykových modelov pri automatizovanom testovaní bezpečnosti webových aplikácií. Východiskom budú odporúčania OWASP pre testovanie webovej bezpečnosti~\cite{OWASP-WSTG} a požiadavky na systematické hodnotenie systémov umelej inteligencie~\cite{NIST-AIME,NIST-ARIA}.
 
+Webové aplikácie patria medzi najčastejšie napádané časti informačných systémov. Manuálne penetračné testovanie je drahé, závisí od skúseností testera a ťažko sa opakuje pri každej zmene aplikácie. Klasické automatizované skenery sú rýchle, no mnohé zraniteľnosti, ktoré vyžadujú porozumenie logike aplikácie, neodhalia. Veľké jazykové modely (angl. \emph{large language models}, LLM) sľubujú prepojenie týchto dvoch svetov: dokážu interpretovať odpovede aplikácie, plánovať ďalšie kroky a ovládať bežné bezpečnostné nástroje.
+
+Rýchly vývoj agentných systémov však prináša aj otázku, ako ich schopnosti merať. Výsledky publikovaných prác sa ťažko porovnávajú, pretože každá používa iné testovacie aplikácie, iné nástroje a iné kritériá úspechu. Cieľom článku je preto (1) zhrnúť existujúce prístupy k automatizovanému bezpečnostnému testovaniu, (2) navrhnúť prostredie Web Pentest Harness, ktoré umožní bezpečné a opakovateľné experimenty, a (3) definovať metriky, podľa ktorých možno agentov objektívne porovnať.
+
+Článok je členený nasledovne. Kapitola~\ref{sucasny-stav} opisuje súčasný stav v oblasti, kapitola~\ref{navrh} predstavuje návrh prostredia a kapitola~\ref{bezpecnost} bezpečný priebeh experimentu. Metodiku hodnotenia uvádza kapitola~\ref{metodika}, obmedzenia rozoberá kapitola~\ref{diskusia} a kapitola~\ref{zaver} článok uzatvára.
+
 \section{Súčasný stav v oblasti}\label{sucasny-stav}
 Táto časť porovná tradičné automatizované bezpečnostné nástroje, prístupy založené na veľkých jazykových modeloch a agentné riešenia. Kategórie testovaných zraniteľností budú vychádzať najmä z OWASP Top 10~\cite{OWASP-Top10}.
 

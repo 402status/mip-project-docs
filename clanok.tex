@@ -92,6 +92,15 @@ Experimenty budú prebiehať výlučne v izolovanom prostredí so zámerne zrani
 \section{Metodika hodnotenia}\label{metodika}
 Hodnotenie bude porovnávať nálezy agenta s referenčnou databázou známych zraniteľností. Sledované budú presnosť, úplnosť, miera falošne pozitívnych nálezov, čas do nájdenia chyby a úspešnosť jej kontrolovaného overenia.
 
+Nález agenta sa považuje za správny (TP), ak sa zhoduje so záznamom v referenčnej databáze v type zraniteľnosti aj v jej umiestnení (URL a parameter). Nález, ktorý v databáze nie je, je falošne pozitívny (FP), a zraniteľnosť z databázy, ktorú agent nenašiel, je falošne negatívna (FN). Z týchto hodnôt vypočítame presnosť $P$, úplnosť $R$ a ich harmonický priemer $F_1$:
+\begin{equation}
+  P = \frac{TP}{TP+FP}, \qquad
+  R = \frac{TP}{TP+FN}, \qquad
+  F_1 = \frac{2PR}{P+R}.
+\end{equation}
+
+Mieru falošne pozitívnych nálezov vyjadríme ako podiel $FP/(TP+FP)$, teda $1-P$. Čas do nájdenia $t_i$ meriame od spustenia behu po prvé správne nahlásenie $i$-tej zraniteľnosti; súhrnne uvedieme medián cez všetky nájdené zraniteľnosti. Keďže výstupy LLM nie sú deterministické, každý agent sa na každej aplikácii spustí viackrát a výsledky uvedieme ako priemer so smerodajnou odchýlkou. Okrem metrík sa zaznamená aj počet volaní nástrojov a spotreba tokenov, aby bolo možné porovnať aj nákladovosť agentov.
+
 \section{Diskusia a obmedzenia}\label{diskusia}
 Diskusia sa bude venovať reprodukovateľnosti experimentov, závislosti výsledkov od konkrétneho modelu a nástrojov, riziku falošných nálezov a bezpečnostným i etickým hraniciam testovania.
 

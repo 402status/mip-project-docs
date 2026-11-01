@@ -1,3 +1,15 @@
+commit 95c8cba346c10df3cd249b6eeb4e501b9dd4fe15
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 19:12:22 2026 +0100
+
+    MIP-24 Pismo Times New Roman vo vsetkych dokumentoch, README prevedene do LaTeXu
+
+commit fb3aa77251b925531e93892c546c3ba3ed446469
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 19:02:47 2026 +0100
+
+    MIP-23 Aktualizacia git_log.txt
+
 commit 704c8f627d881eca1f570514020e85b79ef547f6
 Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
 Date:   Sun Nov 1 19:02:47 2026 +0100

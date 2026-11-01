@@ -8,6 +8,7 @@
 \usepackage{lmodern}
 \usepackage[margin=2.2cm]{geometry}
 \usepackage{graphicx}
+\usepackage{amssymb}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{xcolor}
@@ -92,6 +93,50 @@ Riešenie postupuje iteratívne. V~každej iterácii sa rozšíri benchmark, spu
 \end{enumerate}
 Zvolený postup je opodstatnený, pretože jediný spoľahlivý spôsob, ako porovnať nedeterministické systémy, je opakované meranie na rovnakých úlohách s~nezávislým overením výsledku.
 
+\paragraph{Architektúra riešenia.} Navrhovanú architektúru znázorňuje obr.~\ref{fig:arch}. Riadiaci modul spúšťa beh: pripraví kontajner s~testovanou aplikáciou, odovzdá agentovi popis úlohy a sprístupní mu nástroje. Každé volanie nástroja prechádza cez \emph{kontrolór rozsahu}, ktorý odmietne akcie mimo povolenej adresy alebo akcie označené ako deštruktívne. Všetky volania a odpovede sa ukladajú do \emph{záznamu behu}. Po skončení behu \emph{overovací modul} pre každý nahlásený nález spustí overovací skript úlohy a \emph{hodnotiaci modul} porovná overené nálezy s~referenčnou databázou.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.95\textwidth]{../diagram-architektura.pdf}
+  \caption{Architektúra prostredia Web Pentest Harness.}
+  \label{fig:arch}
+\end{figure}
+
+\paragraph{Taxonómia benchmarku.} Úlohy budú pokrývať hlavné kategórie OWASP Top 10~\cite{OWASP-Top10} v~troch úrovniach obtiažnosti. Plánované rozloženie uvádza tab.~\ref{tab:benchmark}. Ľahká úloha obsahuje jednu priamo dostupnú zraniteľnosť, stredná vyžaduje viac krokov (napr. prihlásenie), ťažká kombináciu viacerých chýb alebo porozumenie logike aplikácie.
+
+\begin{table}[htbp]
+\centering
+\caption{Plánované rozloženie úloh benchmarku.}
+\label{tab:benchmark}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+\textbf{Trieda zraniteľnosti} & \textbf{Ľahká} & \textbf{Stredná} & \textbf{Ťažká} & \textbf{Spolu} \\ \midrule
+SQL injection & 2 & 2 & 1 & 5 \\
+Cross-site scripting (XSS) & 2 & 2 & 1 & 5 \\
+Obchádzanie autentifikácie & 1 & 2 & 2 & 5 \\
+Chybná autorizácia (IDOR) & 1 & 2 & 2 & 5 \\
+Server-side request forgery (SSRF) & 1 & 2 & 2 & 5 \\
+Nesprávna konfigurácia & 2 & 2 & 1 & 5 \\
+Zraniteľné komponenty & 2 & 2 & 1 & 5 \\
+Chyby v~logike aplikácie & 1 & 2 & 2 & 5 \\ \midrule
+\textbf{Spolu} & \textbf{12} & \textbf{16} & \textbf{12} & \textbf{40} \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Návrh experimentov.} Porovnávať sa budú tieto konfigurácie: (A) klasický DAST nástroj ako referencia, (B) LLM v~úlohe asistenta, ktorý navrhuje kroky a nástroje vykonáva skript, (C) jednoduchý autonómny agent s~cyklom ,,uvažuj -- konaj -- pozoruj``, (D) modulárny agent s~oddeleným plánovaním a spracovaním výstupov podľa vzoru~\cite{Deng-PentestGPT} a (E) agent s~dlhodobou pamäťou nálezov. Konfigurácie B--E sa spustia s~troma jazykovými modelmi (dva komerčné, jeden otvorený). Každá kombinácia beží na každej úlohe aspoň päťkrát s~rovnakým časovým a tokenovým limitom, čo pri 40 úlohách dáva približne $4 \times 3 \times 40 \times 5 = 2\,400$ behov agentov.
+
+\paragraph{Štatistické spracovanie.} Rozdiely medzi konfiguráciami sa budú testovať párovými neparametrickými testami na úrovni úloh, pretože rozdelenie úspešnosti nie je normálne. Okrem súhrnných metrík sa ručne analyzuje vzorka neúspešných behov a zlyhania sa zatriedia (napr. strata kontextu, opakovanie rovnakej akcie, halucinovaný nález), čo prinesie kvalitatívny pohľad na slabiny agentov.
+
+\paragraph{Bezpečnosť a etika experimentov.} Autonómny agent schopný zneužiť zraniteľnosť je nástrojom dvojakého použitia. Projekt preto stanovuje tieto pravidlá:
+\begin{itemize}
+  \item experimenty bežia výlučne v~sieťovo izolovanom prostredí; agent nemá prístup na internet ani do siete univerzity,
+  \item testujú sa iba aplikácie vytvorené alebo zámerne upravené na účely projektu, nikdy nie systémy tretích strán,
+  \item kontrolór rozsahu blokuje akcie mimo povolených adries a operácie, ktoré by mohli poškodiť infraštruktúru (mazanie dát, zahltenie služby),
+  \item záznamy behov neobsahujú osobné údaje, keďže aplikácie pracujú iba so syntetickými dátami,
+  \item zverejňuje sa benchmark a metodika, nie postupy útoku na konkrétne reálne systémy.
+\end{itemize}
+Postup bude pred začatím experimentov konzultovaný s~etickou komisiou žiadateľa.
+
 \bod{Najdôležitejšie výstupy zodpovedného riešiteľa za posledných 5 rokov}
 Zodpovedný riešiteľ je mladý výskumný pracovník na začiatku kariéry a zatiaľ nemá aplikačné výstupy. \doplnit{doplniť prípadné študentské projekty, súťaže alebo publikácie}
 
@@ -128,6 +173,17 @@ Všetci štyria riešitelia sú mladí pracovníci do 35 rokov, čo predstavuje 
 \bod{Spôsob a miera využiteľnosti výsledkov v~SR a v~zahraničí}
 Žiadateľ využije harness vo výučbe predmetov zameraných na bezpečnosť a ako platformu pre ďalší výskum. Bezpečnostné firmy a CSIRT tímy ho môžu použiť na nezávislé porovnanie komerčných AI nástrojov pred ich nasadením. Keďže výstupy budú otvorené a v~angličtine, sú priamo použiteľné aj v~zahraničí.
 
+\medskip\noindent
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Cieľová skupina} & \textbf{Spôsob využitia} \\ \midrule
+Výskumné tímy & spoločný benchmark na porovnanie nových agentov a modelov \\
+Bezpečnostné firmy & nezávislé overenie AI nástrojov pred nasadením u~zákazníka \\
+CSIRT a verejná správa & posúdenie, nakoľko sa dá spoľahnúť na automatizované testovanie \\
+Vysoké školy & praktické cvičenia z~bezpečnosti v~izolovanom prostredí \\
+Vývojári AI modelov & meranie bezpečnostných schopností a rizík modelov \\ \bottomrule
+\end{tabularx}
+
 \bod{Ekonomický a spoločenský prínos}
 Lepšie hodnotenie AI nástrojov znižuje riziko, že organizácie nasadia nástroj, ktorý vytvára falošný pocit bezpečia. Automatizácia častí testovania môže znížiť náklady na bezpečnostné audity malých a stredných podnikov. Projekt zároveň zvyšuje kvalitu ľudských zdrojov -- pripravuje odborníkov v~oblasti, kde je na trhu výrazný nedostatok.
 
@@ -155,6 +211,27 @@ PB4 & Experimenty a porovnanie s~klasickými nástrojmi & 01/2029--12/2029 & K. 
 PB5 & Vyhodnotenie, diseminácia, riadenie projektu & 07/2027--06/2030 & A. Tsybulskyi \\ \bottomrule
 \end{tabularx}
 
+\paragraph{PB1 -- Analýza a návrh.} Systematický prehľad literatúry a existujúcich benchmarkov, zber požiadaviek od potenciálnych používateľov, návrh architektúry a rozhraní medzi modulmi, definícia formátu úlohy a referenčnej databázy. \emph{Výstup:} technická správa s~architektúrou a taxonómiou úloh.
+
+\paragraph{PB2 -- Zraniteľné aplikácie a referenčná databáza.} Výber a úprava existujúcich zámerne zraniteľných aplikácií (napr. OWASP WebGoat~\cite{OWASP-WebGoat}), vývoj vlastných aplikácií s~nepublikovanými chybami, zápis každej zraniteľnosti do referenčnej databázy a tvorba overovacích skriptov. \emph{Výstup:} 40 kontajnerizovaných úloh s~overovacími skriptami.
+
+\paragraph{PB3 -- Harness a integrácia agentov.} Implementácia riadiaceho modulu, kontrolóra rozsahu, záznamu behu, overovacieho a hodnotiaceho modulu; jednotné rozhranie pre pripojenie agentov a jazykových modelov. \emph{Výstup:} otvorený softvér Web Pentest Harness s~dokumentáciou.
+
+\paragraph{PB4 -- Experimenty.} Spustenie všetkých konfigurácií podľa návrhu experimentov, priebežná kontrola kvality dát, analýza zlyhaní. \emph{Výstup:} dátová sada výsledkov a záznamov behov.
+
+\paragraph{PB5 -- Vyhodnotenie, diseminácia a riadenie.} Štatistické vyhodnotenie, príprava publikácií, verejné vydanie benchmarku a tabuľky výsledkov, workshop, riadenie projektu a priebežné správy. \emph{Výstup:} články, metodická príručka, záverečná správa.
+
+\medskip\noindent
+\begin{tabular}{@{}l*{6}{c}@{}}
+\toprule
+\textbf{Balík} & \textbf{2027/II} & \textbf{2028/I} & \textbf{2028/II} & \textbf{2029/I} & \textbf{2029/II} & \textbf{2030/I} \\ \midrule
+PB1 & $\blacksquare$ & & & & & \\
+PB2 & & $\blacksquare$ & $\blacksquare$ & & & \\
+PB3 & & $\blacksquare$ & $\blacksquare$ & & & \\
+PB4 & & & & $\blacksquare$ & $\blacksquare$ & \\
+PB5 & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ & $\blacksquare$ \\ \bottomrule
+\end{tabular}
+
 \medskip\noindent\textbf{Míľniky:}
 M1 (12/2027) schválená architektúra a taxonómia úloh;
 M2 (06/2028) pilotná verzia harness s~10 úlohami;
@@ -165,6 +242,10 @@ M5 (06/2030) otvorené vydanie a záverečná správa.
 \bod{Projektový manažment}
 Tím pracuje agilne v~dvojtýždňových šprintoch evidovaných v~nástroji Jira; zdrojové kódy a dokumenty sú v~spoločnom Git repozitári a každá zmena je prepojená s~úlohou. Zodpovedný riešiteľ raz mesačne kontroluje plnenie míľnikov a rozpočtu.
 
+\paragraph{Kontrola kvality.} Každá nová úloha benchmarku prechádza revíziou druhým riešiteľom: overí sa, že zraniteľnosť je zneužiteľná, že overovací skript ju spoľahlivo potvrdí a že v~aplikácii nie sú iné, nezdokumentované chyby. Zmeny kódu harness sa začleňujú až po revízii a úspešnom prebehnutí automatických testov.
+
+\paragraph{Správa dát.} Záznamy behov, výsledky a referenčná databáza sa ukladajú v~štruktúrovanom formáte s~verziou harness, modelu a úlohy. Dáta sa zálohujú na infraštruktúre žiadateľa a po skončení projektu sa zverejnia v~otvorenom repozitári tak, aby bolo možné výsledky reprodukovať.
+
 \bod{Riziká implementácie a ich zmiernenie}
 \noindent
 \begin{tabularx}{\textwidth}{@{}XX@{}}
@@ -173,7 +254,10 @@ Tím pracuje agilne v~dvojtýždňových šprintoch evidovaných v~nástroji Jir
 Únik agenta mimo testovacieho prostredia & sieťová izolácia, kontrola rozsahu pred každou akciou, zakázané deštruktívne operácie \\
 Zmena alebo ukončenie dostupnosti komerčných modelov & zaznamenanie verzie modelu, využitie aj otvorených modelov \\
 Kontaminácia benchmarku trénovacími dátami & podiel vlastných nepublikovaných úloh \\
-Prekročenie nákladov na API modelov & limity tokenov na beh, priebežné sledovanie nákladov \\ \bottomrule
+Prekročenie nákladov na API modelov & limity tokenov na beh, priebežné sledovanie nákladov \\
+Oneskorenie tvorby úloh v~PB2 & pilotná sada 10 úloh do M2, prednostné prevzatie existujúcich aplikácií \\
+Odchod riešiteľa z~tímu & dokumentácia v~repozitári, prekrývanie zodpovedností medzi balíkmi \\
+Zneužitie zverejnených výstupov & zverejnenie len aplikácií určených na výučbu, bez exploitov pre reálne systémy \\ \bottomrule
 \end{tabularx}
 
 \bod{Adekvátnosť rozpočtu}

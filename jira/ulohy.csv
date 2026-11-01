@@ -1,0 +1,18 @@
+Kľúč,Typ,Názov,Stav,Story points,Šprint,Zodpovedný
+MIP-1,Task,Doplniť bibliografické zdroje o LLM agentoch a nástrojoch DAST,Done,2,Šprint_1_týždeň_5,Maksym Tomkevych
+MIP-2,Task,"Rozšíriť úvod: motivácia, cieľ a štruktúra článku",Done,2,Šprint_1_týždeň_5,Andrii Tsybulskyi
+MIP-3,Task,Spracovať prehľad tradičných nástrojov automatizovaného testovania,Done,3,Šprint_1_týždeň_5,Kyrylo Bukhanets
+MIP-4,Task,Spracovať prehľad prístupov založených na LLM a agentoch,Done,5,Šprint_1_týždeň_5,Artur Toba
+MIP-5,Task,Pridať tabuľku porovnania prístupov,Done,2,Šprint_1_týždeň_5,Kyrylo Bukhanets
+MIP-6,Task,Rozpracovať metodiku hodnotenia a definovať metriky,Done,3,Šprint_1_týždeň_5,Andrii Tsybulskyi
+MIP-7,Task,Rozpracovať kapitolu Diskusia a obmedzenia,Done,3,Šprint_1_týždeň_5,Maksym Tomkevych
+MIP-8,Task,Uložiť históriu commitov do git_log.txt,Done,1,Šprint_1_týždeň_5,Artur Toba
+MIP-17,Task,"Pridať export Jira (backlog, šprint, board) do GitHub repozitára",Done,1,Šprint_1_týždeň_5,Andrii Tsybulskyi
+MIP-9,Task,Napísať záver článku,To Do,2,Backlog,
+MIP-10,Task,Doplniť opis implementácie Web Pentest Harness,To Do,5,Backlog,
+MIP-11,Task,Navrhnúť a opísať pilotný experiment,To Do,5,Backlog,
+MIP-12,Task,Vypracovať recenzie článkov iných tímov,To Do,3,Backlog,
+MIP-13,Task,Zapracovať pripomienky z recenzií,To Do,3,Backlog,
+MIP-14,Task,"Kontrola pravopisu, citácií a formátovania",To Do,2,Backlog,
+MIP-15,Task,Pripraviť prezentáciu projektu,To Do,5,Backlog,
+MIP-16,Task,Odovzdať finálnu verziu článku,To Do,1,Backlog,

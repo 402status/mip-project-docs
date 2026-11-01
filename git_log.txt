@@ -1,3 +1,15 @@
+commit f7610bbfa485ba7ede62f27bca30d62add5e01e8
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:39:45 2026 +0100
+
+    MIP-17 Pridanie exportu Jira (backlog, sprint, board) do repozitara
+
+commit 89d63d2ff639e05969177080f273f265d480f332
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:07:48 2026 +0100
+
+    MIP-8 Ulozenie historie commitov do git_log.txt
+
 commit c83da647c35eeeb37f4e5bb9a417de70f1ddaef1
 Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
 Date:   Sun Nov 1 18:06:50 2026 +0100

@@ -1,3 +1,21 @@
+commit 6649cc0b9c47b16e82b96451675db1f21bd11246
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:45:28 2026 +0100
+
+    MIP-19 Formular VV-F vecny zamer projektu (LaTeX + PDF)
+
+commit 8a5f3ea741b65b2174d4c458b6bb00c665e18a53
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:45:28 2026 +0100
+
+    MIP-18 Formular VV-A az VV-E ziadosti (LaTeX + PDF)
+
+commit 1f6f4cfbf5ef60b1ceeef3b46c459eff2d217d5e
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:39:45 2026 +0100
+
+    MIP-17 Aktualizacia git_log.txt
+
 commit f7610bbfa485ba7ede62f27bca30d62add5e01e8
 Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
 Date:   Sun Nov 1 18:39:45 2026 +0100

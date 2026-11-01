@@ -1,3 +1,27 @@
+commit d32bed51256c62b7407cabe885358c840f0ea9b2
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:51:22 2026 +0100
+
+    MIP-22 Pridanie PDF prehladoveho clanku
+
+commit 4081dd7fc4adfd5629da3b7f9c948deea0177fc3
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:51:21 2026 +0100
+
+    MIP-21 Rozsirenie formulara VV-F (architektura, benchmark, experimenty, pracovne baliky, etika)
+
+commit 658ed621225fffa4eba47f59d09e2074a88d8173
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:49:35 2026 +0100
+
+    MIP-20 Zosuladenie nazvu clanku so zameranim a oznacenie primarneho zdroja
+
+commit bfd2ec8ded0a7b4f894e62593b0daf6de74aa72b
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:45:28 2026 +0100
+
+    MIP-19 Aktualizacia git_log.txt
+
 commit 6649cc0b9c47b16e82b96451675db1f21bd11246
 Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
 Date:   Sun Nov 1 18:45:28 2026 +0100

@@ -1,3 +1,15 @@
+commit 84db37f28e7b4378848beaa1f1ca35213ab72ae3
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:57:34 2026 +0100
+
+    MIP-18 Odstranenie nevyplnenych poli z formularov VV-A az VV-F
+
+commit dcf19ebda7cba831fb0ff3c9b0d90c027a8043e2
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:51:22 2026 +0100
+
+    MIP-22 Aktualizacia git_log.txt
+
 commit d32bed51256c62b7407cabe885358c840f0ea9b2
 Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
 Date:   Sun Nov 1 18:51:22 2026 +0100

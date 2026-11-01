@@ -1,0 +1,119 @@
+commit c83da647c35eeeb37f4e5bb9a417de70f1ddaef1
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:06:50 2026 +0100
+
+    MIP-7 Rozpracovanie kapitoly Diskusia a obmedzenia
+
+commit 653f865188afd512204b51f2cde7c18a12ad8bf9
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:06:32 2026 +0100
+
+    MIP-6 Rozpracovanie metodiky hodnotenia a definicia metrik
+
+commit be6ad4e2b697e7f8378759737fe81ad305539b37
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:06:16 2026 +0100
+
+    MIP-5 Pridanie tabulky porovnania pristupov
+
+commit c3a1f7406d1247fd0a0bd229e714aa5e1e845fb0
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:06:05 2026 +0100
+
+    MIP-4 Prehlad pristupov zalozenych na LLM a agentoch
+
+commit be718a0f7d235ed05b9c2fd7383e74f0b1b29cc3
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:05:48 2026 +0100
+
+    MIP-3 Prehlad tradicnych nastrojov automatizovaneho testovania
+
+commit 9a2d8f1bf56bcb2a2b26d66e9e5af57a6bfe930b
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:05:35 2026 +0100
+
+    MIP-2 Rozsirenie uvodu o motivaciu, ciele a strukturu clanku
+
+commit 696d870a185182fb96c1360782fe12e244367cf9
+Author: Andrii Tsybulskyi <xtribulskyi@stuba.sk>
+Date:   Sun Nov 1 18:05:18 2026 +0100
+
+    MIP-1 Doplnenie bibliografickych zdrojov o LLM agentoch a nastrojoch DAST
+
+commit 370bc36b298a414ced43a95d3b279078ec94a1f4
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 20:01:43 2026 +0200
+
+    Uprava nazvu, abstraktu a struktury clanku
+
+commit f7c9a602c6b9ec114e2d6f25fdc01b307e70c8a5
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:50:10 2026 +0200
+
+    Pridanie Graphviz zdroja diagramu priebehu
+
+commit bf650789b2be7df75fdc24a97e9d3194a6069e31
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:46:39 2026 +0200
+
+    Pridanie PDF diagramu architektury harnessu
+
+commit 9d4dfc438fdb27c9fe25c8353b6505440c76c6ca
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:46:03 2026 +0200
+
+    Pridanie zdroja diagramu architektury harnessu
+
+commit 4d0ccb22784f0cf4d181a2141a3d7eab224c98e0
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:45:29 2026 +0200
+
+    Delete diagram-priebeh.dot
+
+commit fcf918acd7a6ca5399bd76f71ecde1e34ee55a3e
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:43:54 2026 +0200
+
+    Pridanie zdroja diagramu architektury harnessu
+
+commit f053355643b30c0aad56fa0e44e05dffa21a830f
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:43:20 2026 +0200
+
+    Pridanie PDF diagramu priebehu pentestu
+
+commit 9386ef7e09ca95a38950857ad6d6cd32e97f86cc
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:42:51 2026 +0200
+
+    Pridanie zdroja UML diagramu priebehu pentestu
+
+commit 8b461be829a082d597ffe767b099c1c6492b2d33
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:41:15 2026 +0200
+
+    Doplnenie relevantnych bibliografickych zdrojov
+
+commit 439731bf61744807dbaebd30c424ffe81c2f58a4
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:40:44 2026 +0200
+
+    Fix formatting issue in literatura.bib
+
+commit d0fe34ed4278ebc2052174584c2a6dbdebcbd2b6
+Author: feader <92216478+feader02@users.noreply.github.com>
+Date:   Sun Oct 11 19:40:04 2026 +0200
+
+    Add files via upload
+
+commit 7029f0449f32041b86a2d14dd734f85c24d786cb
+Author: 402status <402status@users.noreply.github.com>
+Date:   Wed Oct 7 12:36:20 2026 +0200
+
+    pridali sme predbeznu verziu
+
+commit b63a92ffd95beea223edcf8ceea830833684d201
+Author: 402status <402status@users.noreply.github.com>
+Date:   Wed Oct 7 12:34:20 2026 +0200
+
+    init

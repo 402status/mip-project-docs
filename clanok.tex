@@ -12,7 +12,7 @@
 
 \pagestyle{headings}
 
-\title{Využitie veľkých jazykových modelov pri automatizovanom testovaní bezpečnosti webových aplikácií\thanks{Predbežná verzia prehľadového článku v predmete Metódy inžinierskej práce, ak. rok 2026/27.}}
+\title{Inteligentný systém na automatizované testovanie bezpečnosti webových aplikácií pomocou veľkých jazykových modelov (AI-PENTEST): prehľad stavu v~oblasti\thanks{Predbežná verzia prehľadového článku v predmete Metódy inžinierskej práce, ak. rok 2026/27.}}
 \author{
 Kyrylo Bukhanets, Artur Toba, Maksym Tomkevych, Andrii Tsybulskyi\\[2pt]
 {\small Slovenská technická univerzita v Bratislave}\\
@@ -29,7 +29,7 @@ Veľké jazykové modely dokážu plánovať a vykonávať úlohy spojené s ana
 \end{abstract}
 
 \section{Úvod}\label{uvod}
-Článok sa zameria na možnosti a obmedzenia veľkých jazykových modelov pri automatizovanom testovaní bezpečnosti webových aplikácií. Východiskom budú odporúčania OWASP pre testovanie webovej bezpečnosti~\cite{OWASP-WSTG} a požiadavky na systematické hodnotenie systémov umelej inteligencie~\cite{NIST-AIME,NIST-ARIA}.
+Článok sa zameria na možnosti a obmedzenia veľkých jazykových modelov pri automatizovanom testovaní bezpečnosti webových aplikácií. Primárnym zdrojom, ktorý nás k~téme usmernil, je OWASP Web Security Testing Guide~\cite{OWASP-WSTG}: definuje, čo všetko má úplný test webovej aplikácie pokryť, a tým aj to, voči čomu treba merať AI agentov. Ďalším východiskom sú požiadavky na systematické hodnotenie systémov umelej inteligencie~\cite{NIST-AIME,NIST-ARIA}.
 
 Webové aplikácie patria medzi najčastejšie napádané časti informačných systémov. Manuálne penetračné testovanie je drahé, závisí od skúseností testera a ťažko sa opakuje pri každej zmene aplikácie. Klasické automatizované skenery sú rýchle, no mnohé zraniteľnosti, ktoré vyžadujú porozumenie logike aplikácie, neodhalia. Veľké jazykové modely (angl. \emph{large language models}, LLM) sľubujú prepojenie týchto dvoch svetov: dokážu interpretovať odpovede aplikácie, plánovať ďalšie kroky a ovládať bežné bezpečnostné nástroje.
 

@@ -50,6 +50,25 @@ Prvé práce využívali LLM ako asistenta, ktorý testerovi radí ďalší krok
 
 Na porovnávanie agentov vznikajú benchmarky. Cybench zhromažďuje profesionálne úlohy typu \emph{capture the flag} a delí ich na menšie podúlohy, aby bolo možné merať aj čiastočný pokrok agenta~\cite{Zhang-Cybench}. Takéto benchmarky sa však zameriavajú na nájdenie vlajky, nie na úplnosť a presnosť nálezov v reálnej webovej aplikácii, čo je medzera, ktorú má pokryť navrhovaný Web Pentest Harness.
 
+Hlavné rozdiely medzi prístupmi zhŕňa tab.~\ref{tab:porovnanie}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Porovnanie prístupov k automatizovanému testovaniu bezpečnosti.}
+  \label{tab:porovnanie}
+  \begin{tabular}{|l|c|c|c|}
+    \hline
+    \textbf{Vlastnosť} & \textbf{SAST/DAST} & \textbf{LLM asistent} & \textbf{LLM agent} \\
+    \hline
+    Rýchlosť & vysoká & stredná & stredná \\
+    Logika aplikácie & nízka & stredná & vyššia \\
+    Samostatnosť & úplná & nízka & vysoká \\
+    Falošné nálezy & časté & závisí od testera & časté \\
+    Opakovateľnosť & vysoká & nízka & nízka \\
+    \hline
+  \end{tabular}
+\end{table}
+
 \section{Návrh Web Pentest Harness}\label{navrh}
 Navrhované riešenie oddelí rozhodovanie AI agenta od nástrojov, testovanej aplikácie a hodnotiaceho modulu. Architektúru a tok údajov znázorňuje obr.~\ref{fig:architektura}.
 

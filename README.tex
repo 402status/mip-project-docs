@@ -1,0 +1,60 @@
+% AI-PENTEST -- popis repozitára
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[slovak]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath} % Times New Roman
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+
+\title{AI-PENTEST\\[4pt]\large Inteligentný systém na automatizované testovanie bezpečnosti webových aplikácií pomocou veľkých jazykových modelov}
+\author{Kyrylo Bukhanets, Artur Toba, Maksym Tomkevych, Andrii Tsybulskyi}
+\date{\small Tímový projekt v~predmete Metódy inžinierskej práce, FIIT STU, ak. rok 2026/27}
+
+\begin{document}
+\maketitle
+
+\section*{Štruktúra repozitára}
+
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+\toprule
+\textbf{Cesta} & \textbf{Obsah} \\ \midrule
+\texttt{zameranie/} & Zameranie projektu (názov, akronym, anotácia): \texttt{zameranie.tex}, \texttt{zameranie.pdf} \\
+\texttt{clanok/} & Prehľadový článok: \texttt{clanok.tex}, \texttt{clanok.pdf} \\
+\texttt{clanok/literatura.bib} & Bibliografia (BibTeX), spoločná aj pre formulár VV-F \\
+\texttt{clanok/obrazky/} & Diagramy -- zdroj (\texttt{.dot}, \texttt{.uxf}) aj export (\texttt{.pdf}) \\
+\texttt{formulare/} & Žiadosť pre aplikovaný výskum podľa vzoru APVV VV 2024: \texttt{vv-a-e.tex/.pdf} (formulár VV-A až VV-E), \texttt{vv-f.tex/.pdf} (formulár VV-F -- vecný zámer projektu) \\
+\texttt{jira/} & Export z~Jira: zoznam úloh, snímky backlogu a boardu \\
+\texttt{git\_log.txt} & História commitov (\texttt{git log}) \\
+\texttt{README.tex/.pdf} & Tento dokument \\ \bottomrule
+\end{tabularx}
+
+\section*{Odovzdania}
+
+\begin{tabularx}{\textwidth}{@{}Xll@{}}
+\toprule
+\textbf{Časť} & \textbf{Termín} & \textbf{Súbory} \\ \midrule
+Zameranie projektu & 4.~10.~2026 & \texttt{zameranie/} \\
+Predbežná verzia projektu & 1.~11.~2026 & \texttt{formulare/}, \texttt{clanok/} \\
+Slajdy prezentácie & najneskôr 29.~11.~2026 & -- \\
+Projekt a jeho súčasti & 12.~12.~2026 & -- \\ \bottomrule
+\end{tabularx}
+
+\section*{Preklad do PDF}
+
+Potrebná je distribúcia LaTeX (MiKTeX alebo TeX Live) s~nástrojom \texttt{latexmk}. Všetky dokumenty používajú písmo Times (balík \texttt{newtx}).
+
+\begin{verbatim}
+cd clanok    && latexmk -pdf clanok.tex
+cd formulare && latexmk -pdf vv-a-e.tex && latexmk -pdf vv-f.tex
+cd zameranie && latexmk -pdf zameranie.tex
+\end{verbatim}
+
+\section*{Riadenie projektu}
+
+Úlohy sa evidujú v~Jira (projekt \texttt{MIP}, Scrum). Každý commit začína kľúčom úlohy, napr.\ \texttt{MIP-3 Prehlad tradicnych nastrojov automatizovaneho testovania}. Podrobnosti sú v~dokumente \texttt{jira/README.pdf}.
+
+\end{document}

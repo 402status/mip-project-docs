@@ -19,7 +19,7 @@ Kyrylo Bukhanets, Artur Toba, Maksym Tomkevych, Andrii Tsybulskyi\\[2pt]
 {\small Fakulta informatiky a informačných technológií}\\
 {\small \texttt{bukhanets@stuba.sk, xtoba@stuba.sk, xtomkevych@stuba.sk, xtribulskyi@stuba.sk}}
 }
-\date{\small 11. október 2026}
+\date{\small 1. november 2026}
 
 \begin{document}
 \maketitle
@@ -38,7 +38,7 @@ Rýchly vývoj agentných systémov však prináša aj otázku, ako ich schopnos
 Článok je členený nasledovne. Kapitola~\ref{sucasny-stav} opisuje súčasný stav v oblasti, kapitola~\ref{navrh} predstavuje návrh prostredia a kapitola~\ref{bezpecnost} bezpečný priebeh experimentu. Metodiku hodnotenia uvádza kapitola~\ref{metodika}, obmedzenia rozoberá kapitola~\ref{diskusia} a kapitola~\ref{zaver} článok uzatvára.
 
 \section{Súčasný stav v oblasti}\label{sucasny-stav}
-Táto časť porovná tradičné automatizované bezpečnostné nástroje, prístupy založené na veľkých jazykových modeloch a agentné riešenia. Kategórie testovaných zraniteľností budú vychádzať najmä z OWASP Top 10~\cite{OWASP-Top10}.
+Táto časť porovnáva tradičné automatizované bezpečnostné nástroje, prístupy založené na veľkých jazykových modeloch a agentné riešenia. Kategórie testovaných zraniteľností budú vychádzať najmä z OWASP Top 10~\cite{OWASP-Top10}.
 
 \subsection{Tradičné automatizované nástroje}\label{tradicne}
 Statická analýza (SAST) skúma zdrojový kód bez jeho spustenia a dokáže včas upozorniť na nebezpečné konštrukcie, často však hlási veľa falošne pozitívnych nálezov a nemá k dispozícii kontext nasadenia. Dynamická analýza (DAST) testuje bežiacu aplikáciu ako čiernu skrinku: prechádza jej stránky, posiela upravené požiadavky a vyhodnocuje odpovede. Typickým voľne dostupným nástrojom je ZAP~\cite{ZAP}. Už staršia porovnávacia štúdia ukázala, že čiernoskrinkové skenery spoľahlivo nachádzajú jednoduché reflektované chyby, no zlyhávajú pri zraniteľnostiach viazaných na stav aplikácie, viacstupňové formuláre alebo logiku autorizácie~\cite{Doupe-Johnny}. Práve tieto prípady dnes rieši najmä človek -- penetračný tester.
@@ -113,7 +113,7 @@ Diskusia sa bude venovať reprodukovateľnosti experimentov, závislosti výsled
 \paragraph{Bezpečnosť a etika.} Autonómny agent schopný zneužiť zraniteľnosť je nástrojom dvojakého použitia. Experimenty preto prebiehajú iba v izolovanej sieti bez prístupu na internet, každá akcia prechádza kontrolou rozsahu a deštruktívne operácie sú zakázané. Výsledky budú publikované bez návodov na zneužitie konkrétnych reálnych systémov.
 
 \section{Záver}\label{zaver}
-Záver zhrnie zistenia prehľadu a vyhodnotí, do akej miery môže štandardizovaný Web Pentest Harness podporiť objektívne porovnávanie AI agentov.
+Článok zhrnul súčasný stav automatizovaného testovania bezpečnosti webových aplikácií od klasických nástrojov SAST/DAST~\cite{ZAP,Doupe-Johnny} cez asistentov~\cite{Deng-PentestGPT} až po autonómnych agentov~\cite{Fang-HackWebsites}. Ukázal, že schopnosti agentov rýchlo rastú, no výsledky jednotlivých prác sa ťažko porovnávajú, pretože používajú odlišné testovacie aplikácie, nástroje a kritériá úspechu; existujúce benchmarky navyše merajú najmä nájdenie vlajky~\cite{Zhang-Cybench}, nie úplnosť a presnosť nálezov. Na túto medzeru navrhujeme prostredie Web Pentest Harness a metodiku hodnotenia založenú na presnosti, úplnosti, $F_1$, čase a nákladoch. Ide zatiaľ o návrh, ktorý nie je experimentálne overený. V ďalších fázach projektu plánujeme harness implementovať, vytvoriť benchmark s približne 40 úlohami vrátane vlastných nepublikovaných a porovnať viaceré architektúry agentov s klasickým DAST nástrojom. Otvorenými otázkami zostávajú reprezentatívnosť benchmarku, reprodukovateľnosť pri meniacich sa komerčných modeloch a bezpečné vykonávanie experimentov.
 
 \bibliographystyle{plain}
 \bibliography{literatura}

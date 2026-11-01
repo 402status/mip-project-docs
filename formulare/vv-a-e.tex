@@ -1,0 +1,173 @@
+% Metódy inžinierskej práce -- predbežná verzia projektu
+% Formulár VV-A až VV-E žiadosti pre aplikovaný výskum (podľa vzoru APVV VV 2024, Príloha 5)
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[slovak]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=2cm]{geometry}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{formbg}{gray}{0.92}
+\newcommand{\akronym}{AI-PENTEST}
+\newcommand{\doplnit}[1]{\textcolor{gray}{[#1]}}
+\newcommand{\polozka}[3]{\textbf{#1} & \cellcolor{formbg}\small #2 & #3 \\ \hline}
+\usepackage{colortbl}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small VV 2024 \quad Aplikovaný výskum / Applied research}
+\rhead{\small Akronym: \akronym}
+\cfoot{\small Strana/Page: \thepage}
+\setlength{\headheight}{14pt}
+
+\newenvironment{formular}[2]{%
+  \section*{#1 \quad {\normalsize #2}}
+  \noindent\renewcommand{\arraystretch}{1.35}%
+  \begin{longtable}{|p{0.6cm}|p{4.6cm}|p{10.3cm}|}\hline
+}{%
+  \end{longtable}
+}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Žiadosť o poskytnutie prostriedkov na riešenie projektu}\\[2pt]
+  {\large Aplikovaný výskum -- formulár VV-A až VV-E}\\[4pt]
+  {\small Predbežná verzia, Metódy inžinierskej práce, ak. rok 2026/27}
+\end{center}
+
+% ---------------------------------------------------------------
+\begin{formular}{VV-A1}{Základné informácie o projekte}
+\polozka{01}{Evidenčné číslo projektu}{APVV-24-0000 \doplnit{pridelí agentúra}}
+\polozka{02}{Dátum podania}{1.~11.~2026}
+\polozka{03}{Názov projektu}{Inteligentný systém na automatizované testovanie bezpečnosti webových aplikácií pomocou veľkých jazykových modelov}
+\polozka{03}{Názov projektu v~angličtine}{An Intelligent System for Automated Security Testing of Web Applications Using Large Language Models}
+\polozka{04}{Akronym projektu}{\akronym}
+\polozka{05}{Odbor vedy a techniky}{Technické vedy -- informatika}
+\polozka{06}{Charakter výskumu}{Aplikovaný výskum}
+\polozka{07}{Začiatok riešenia projektu}{1.~7.~2027}
+\polozka{08}{Koniec riešenia projektu}{30.~6.~2030}
+\polozka{09}{Anotácia (max. 2\,000 znakov)}{%
+Súčasné veľké jazykové modely dokážu vykonávať zložité úlohy súvisiace s~analýzou webových aplikácií, no chýba štandardizované prostredie na bezpečné a objektívne porovnávanie ich schopností v~oblasti penetračného testovania. Projekt \akronym{} preto navrhuje vytvoriť Web Pentest Harness -- kontrolované prostredie, v~ktorom AI agent dostane webovú aplikáciu a pokúsi sa samostatne vykonať jej bezpečnostné testovanie. Harness poskytuje agentovi izolované testovacie prostredie a nástroje na interakciu s~aplikáciou, zaznamenáva všetky jeho akcie, overuje existenciu nájdenej zraniteľnosti kontrolovaným proof-of-concept postupom, vyhodnocuje úspešnosť agenta a zbiera výsledky na porovnanie viacerých AI modelov. Jadrom riešenia je kontajnerizovaná sada zámerne zraniteľných webových aplikácií so známymi triedami chýb (SQL injection, XSS, obchádzanie autentifikácie a autorizácie, SSRF, IDOR, nesprávna konfigurácia), doplnená anotovanou databázou referenčných zraniteľností a hodnotiacim modulom, ktorý počíta presnosť, úplnosť, mieru falošne pozitívnych nálezov a čas do nájdenia a overenia zraniteľnosti. Výstupom bude otvorená infraštruktúra (harness a benchmark úloh rôznej obtiažnosti) a empirické porovnanie architektúr AI agentov z~hľadiska efektivity, spoľahlivosti a typických zlyhaní.}
+\polozka{10}{Žiadateľská organizácia}{Slovenská technická univerzita v~Bratislave, Fakulta informatiky a informačných technológií}
+\polozka{11}{Požadované finančné prostriedky z~APVV (v~EUR)}{240\,000}
+\polozka{12}{Spolufinancovanie projektu (v~EUR)}{0}
+\polozka{13}{Celkové náklady na projekt (v~EUR)}{240\,000}
+\end{formular}
+
+% ---------------------------------------------------------------
+\begin{formular}{VV-A2}{Žiadateľ -- základné informácie o riešiteľskej organizácii}
+\polozka{01}{Názov organizácie}{Slovenská technická univerzita v~Bratislave}
+\polozka{02}{Skrátený názov}{STU}
+\polozka{03}{Adresa organizácie}{Vazovova 5, 812 43 Bratislava; \newline pracovisko: FIIT STU, Ilkovičova 2, 842 16 Bratislava}
+\polozka{04}{IČO}{00397687}
+\polozka{05}{Príslušnosť k~rezortu}{Ministerstvo školstva, výskumu, vývoja a mládeže SR}
+\polozka{06}{Forma hospodárenia}{Verejná vysoká škola}
+\polozka{07}{Kontaktná osoba / telefón / e-mail}{Andrii Tsybulskyi, \doplnit{telefón}, \texttt{xtribulskyi@stuba.sk}}
+\polozka{08}{Štatutárny zástupca I}{\doplnit{rektor/ka STU}}
+\polozka{09}{Štatutárny zástupca II}{--}
+\end{formular}
+
+\noindent\emph{Spoluriešiteľská organizácia:} projekt nemá spoluriešiteľskú organizáciu.
+
+% ---------------------------------------------------------------
+\section*{VV-A3 \quad {\normalsize Zoznam riešiteľov}}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|l|l|l|r|}
+\hline
+\rowcolor{formbg}\textbf{Meno a priezvisko} & \textbf{Pracovné zaradenie} & \textbf{Dátum narodenia} & \textbf{IČO org.} & \textbf{Počet hodín} \\ \hline
+Andrii Tsybulskyi (zodpovedný riešiteľ) & výskumný pracovník & \doplnit{doplniť} & 00397687 & 2\,400 \\ \hline
+Kyrylo Bukhanets & výskumný pracovník & \doplnit{doplniť} & 00397687 & 2\,000 \\ \hline
+Artur Toba & výskumný pracovník & \doplnit{doplniť} & 00397687 & 2\,000 \\ \hline
+Maksym Tomkevych & výskumný pracovník & \doplnit{doplniť} & 00397687 & 2\,000 \\ \hline
+\multicolumn{4}{|l|}{\textbf{Spolu: 4 riešitelia}} & \textbf{8\,400} \\ \hline
+\multicolumn{4}{|l|}{Ostatní zamestnanci (technická podpora, správa infraštruktúry): 1 osoba} & 600 \\ \hline
+\multicolumn{4}{|l|}{\textbf{Celkový počet zamestnancov: 5 \quad Súhrnná kapacita v~hodinách}} & \textbf{9\,000} \\ \hline
+\end{tabularx}
+
+% ---------------------------------------------------------------
+\begin{formular}{VV-A4}{Základné informácie o zodpovednom riešiteľovi}
+\polozka{01}{Meno a priezvisko}{Andrii Tsybulskyi}
+\polozka{02}{Organizácia}{STU v~Bratislave, FIIT}
+\polozka{03}{Zodpovedný riešiteľ je mladým vedeckým pracovníkom}{áno (do 35 rokov)}
+\polozka{04}{ID výskumníka}{ORCID: \doplnit{doplniť}}
+\polozka{05}{Projekty za posledných 5 rokov}{0 -- zodpovedný riešiteľ je na začiatku výskumnej kariéry; projekt je prvým samostatným projektom tímu.}
+\polozka{06}{Expertízy, konzultácie a výsledky s~priamym využitím v~praxi}{0}
+\polozka{07}{Aplikačné výstupy -- chránené}{0}
+\end{formular}
+
+\noindent\textbf{Čestné vyhlásenie zodpovedného riešiteľa.} Ja, dolu podpísaný Andrii Tsybulskyi, čestne vyhlasujem, že údaje uvedené v~častiach ,,Základné informácie o~zodpovednom riešiteľovi`` sú pravdivé a že pri riešení projektu budú dodržané všetky zásady etických princípov vyplývajúce z~európskej a národnej legislatívy.
+
+\medskip\noindent Miesto: Bratislava \hfill Dátum: 1.~11.~2026 \hfill Podpis: \rule{4cm}{0.4pt}
+
+% ---------------------------------------------------------------
+\begin{formular}{VV-B}{Ciele, zámery a výstupy projektu}
+\polozka{01}{Kľúčové slová}{veľké jazykové modely; AI agenti; penetračné testovanie; bezpečnosť webových aplikácií; benchmark; hodnotenie AI}
+\polozka{02}{Ciele projektu}{%
+C1: navrhnúť a implementovať Web Pentest Harness -- izolované prostredie na spúšťanie AI agentov proti zraniteľným webovým aplikáciám so záznamom všetkých akcií; \newline
+C2: vytvoriť benchmark aspoň 40 úloh v~minimálne 8 triedach zraniteľností podľa OWASP Top 10 s~anotovanou referenčnou databázou; \newline
+C3: navrhnúť hodnotiaci modul s~metrikami presnosť, úplnosť, $F_1$, miera falošných nálezov, čas do nálezu a náklady behu; \newline
+C4: porovnať aspoň 4 architektúry AI agentov a 3 jazykové modely s~klasickým DAST nástrojom a publikovať výsledky.}
+\polozka{03}{Zaradenie projektu do TRL}{TRL 3 $\rightarrow$ TRL 5}
+\polozka{03}{Zdôvodnenie zaradenia do TRL}{Princíp autonómneho testovania pomocou LLM agentov je experimentálne overený v~literatúre (TRL 3). Projekt ho overí v~relevantnom, no kontrolovanom prostredí s~realistickými aplikáciami (TRL 4--5).}
+\polozka{04}{Zaradenie výstupov do TRL}{Web Pentest Harness (softvér, TRL 5); benchmark a referenčná databáza (dátová sada, TRL 5); metodika hodnotenia (TRL 4).}
+\polozka{04}{Využitie výsledkov -- odberateľ je žiadateľ}{áno -- FIIT STU využije harness vo výučbe bezpečnosti a vo výskume}
+\polozka{04}{Využitie výsledkov -- iný odberateľ}{áno -- bezpečnostné firmy a CSIRT tímy na porovnanie nástrojov \doplnit{konkrétna organizácia}}
+\polozka{05}{Prehľad plánovaných verejne dostupných výstupov}{%
+E1: technická správa s~návrhom architektúry a taxonómiou úloh; \newline
+E2: otvorený zdrojový kód harness a prvá verzia benchmarku; \newline
+E3: dátová sada výsledkov experimentov, článok na konferencii; \newline
+E4: finálna verzia benchmarku, článok v~časopise, metodická príručka.}
+\end{formular}
+
+% ---------------------------------------------------------------
+\section*{VV-C \quad {\normalsize Rozpočet projektu v~EUR}}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|l|X|r|r|r|r|r|}
+\hline
+\rowcolor{formbg} & \textbf{Položka} & \textbf{2027} & \textbf{2028} & \textbf{2029} & \textbf{2030} & \textbf{Spolu} \\ \hline
+01 & Bežné priame náklady & 34\,700 & 69\,400 & 69\,400 & 34\,700 & 208\,200 \\ \hline
+02 & \quad Mzdové a ostatné osobné náklady & 20\,000 & 40\,000 & 40\,000 & 20\,000 & 120\,000 \\ \hline
+03 & \quad Poistné & 7\,200 & 14\,400 & 14\,400 & 7\,200 & 43\,200 \\ \hline
+04 & \quad Cestovné náklady & 1\,500 & 3\,000 & 3\,000 & 1\,500 & 9\,000 \\ \hline
+05 & \quad Materiál & 1\,000 & 2\,000 & 2\,000 & 1\,000 & 6\,000 \\ \hline
+06 & \quad Služby (cloud, prístup k~API modelov) & 4\,000 & 8\,000 & 8\,000 & 4\,000 & 24\,000 \\ \hline
+07 & \quad Energie, komunikácie & 500 & 1\,000 & 1\,000 & 500 & 3\,000 \\ \hline
+08 & \quad Náklady na popularizáciu & 500 & 1\,000 & 1\,000 & 500 & 3\,000 \\ \hline
+09 & Bežné nepriame náklady & 5\,300 & 10\,600 & 10\,600 & 5\,300 & 31\,800 \\ \hline
+10 & \textbf{Bežné náklady spolu = celkové náklady z~APVV} & \textbf{40\,000} & \textbf{80\,000} & \textbf{80\,000} & \textbf{40\,000} & \textbf{240\,000} \\ \hline
+ & Spolufinancovanie & 0 & 0 & 0 & 0 & 0 \\ \hline
+ & \textbf{Celkové náklady} & \textbf{40\,000} & \textbf{80\,000} & \textbf{80\,000} & \textbf{40\,000} & \textbf{240\,000} \\ \hline
+\end{tabularx}
+
+\medskip\noindent Kapitálové náklady sa neplánujú; výpočtový výkon sa zabezpečí ako služba (položka 06).
+
+% ---------------------------------------------------------------
+\section*{VV-D \quad {\normalsize Harmonogram projektu}}
+\begin{tabularx}{\textwidth}{|c|X|l|l|}
+\hline
+\rowcolor{formbg}\textbf{Etapa} & \textbf{Názov etapy} & \textbf{Začiatok} & \textbf{Koniec} \\ \hline
+E1 & Analýza stavu poznania, návrh architektúry harness a taxonómie úloh & 1.~7.~2027 & 31.~12.~2027 \\ \hline
+E2 & Implementácia harness, zraniteľných aplikácií a referenčnej databázy & 1.~1.~2028 & 31.~12.~2028 \\ \hline
+E3 & Experimenty s~AI agentmi a klasickými nástrojmi, priebežné vyhodnotenie & 1.~1.~2029 & 31.~12.~2029 \\ \hline
+E4 & Finálne vyhodnotenie, otvorené vydanie benchmarku, diseminácia & 1.~1.~2030 & 30.~6.~2030 \\ \hline
+\end{tabularx}
+
+\subsection*{Zoznam prístrojov v~projekte}
+Projekt neplánuje nákup prístrojov.
+
+% ---------------------------------------------------------------
+\section*{VV-E \quad {\normalsize Čestné vyhlásenie štatutárneho zástupcu žiadateľskej organizácie}}
+Ja, dolu podpísaný/á \doplnit{meno štatutárneho zástupcu}, štatutárny zástupca / štatutárna zástupkyňa organizácie Slovenská technická univerzita v~Bratislave, záväzne vyhlasujem, že údaje uvedené v~tejto žiadosti sú pravdivé, že žiadateľ spĺňa podmienky výzvy a že svojím podpisom zodpovedám za správnosť a pravdivosť údajov týkajúcich sa organizácie, za ktorú sa predkladá toto čestné vyhlásenie.
+
+\medskip\noindent Miesto: Bratislava \hfill Dátum: \rule{3cm}{0.4pt} \hfill Podpis štatutárneho zástupcu: \rule{4cm}{0.4pt}
+
+\end{document}

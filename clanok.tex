@@ -40,6 +40,9 @@ Rýchly vývoj agentných systémov však prináša aj otázku, ako ich schopnos
 \section{Súčasný stav v oblasti}\label{sucasny-stav}
 Táto časť porovná tradičné automatizované bezpečnostné nástroje, prístupy založené na veľkých jazykových modeloch a agentné riešenia. Kategórie testovaných zraniteľností budú vychádzať najmä z OWASP Top 10~\cite{OWASP-Top10}.
 
+\subsection{Tradičné automatizované nástroje}\label{tradicne}
+Statická analýza (SAST) skúma zdrojový kód bez jeho spustenia a dokáže včas upozorniť na nebezpečné konštrukcie, často však hlási veľa falošne pozitívnych nálezov a nemá k dispozícii kontext nasadenia. Dynamická analýza (DAST) testuje bežiacu aplikáciu ako čiernu skrinku: prechádza jej stránky, posiela upravené požiadavky a vyhodnocuje odpovede. Typickým voľne dostupným nástrojom je ZAP~\cite{ZAP}. Už staršia porovnávacia štúdia ukázala, že čiernoskrinkové skenery spoľahlivo nachádzajú jednoduché reflektované chyby, no zlyhávajú pri zraniteľnostiach viazaných na stav aplikácie, viacstupňové formuláre alebo logiku autorizácie~\cite{Doupe-Johnny}. Práve tieto prípady dnes rieši najmä človek -- penetračný tester.
+
 \section{Návrh Web Pentest Harness}\label{navrh}
 Navrhované riešenie oddelí rozhodovanie AI agenta od nástrojov, testovanej aplikácie a hodnotiaceho modulu. Architektúru a tok údajov znázorňuje obr.~\ref{fig:architektura}.
 

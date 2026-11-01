@@ -104,6 +104,14 @@ Mieru falošne pozitívnych nálezov vyjadríme ako podiel $FP/(TP+FP)$, teda $1
 \section{Diskusia a obmedzenia}\label{diskusia}
 Diskusia sa bude venovať reprodukovateľnosti experimentov, závislosti výsledkov od konkrétneho modelu a nástrojov, riziku falošných nálezov a bezpečnostným i etickým hraniciam testovania.
 
+\paragraph{Reprodukovateľnosť.} Komerčné modely sa priebežne aktualizujú, preto rovnaký experiment o niekoľko mesiacov nemusí dať rovnaký výsledok. Harness preto zaznamenáva presnú verziu modelu, parametre generovania, verzie nástrojov aj testovaných aplikácií a celý priebeh komunikácie agenta.
+
+\paragraph{Závislosť od nástrojov.} Výkon agenta neurčuje iba model, ale aj sada nástrojov, ktoré má k dispozícii, a spôsob, akým sú opísané. Pri porovnávaní modelov musí byť táto sada rovnaká, inak by sa merala kvalita integrácie, nie modelu.
+
+\paragraph{Reprezentatívnosť.} Zámerne zraniteľné aplikácie ako WebGoat~\cite{OWASP-WebGoat} obsahujú známe a dobre zdokumentované chyby, ktoré sa mohli objaviť v trénovacích dátach modelov. Vysoké skóre preto nemusí znamenať úspech na neznámej aplikácii; tento efekt plánujeme zmierniť pridaním vlastných, nepublikovaných zraniteľností.
+
+\paragraph{Bezpečnosť a etika.} Autonómny agent schopný zneužiť zraniteľnosť je nástrojom dvojakého použitia. Experimenty preto prebiehajú iba v izolovanej sieti bez prístupu na internet, každá akcia prechádza kontrolou rozsahu a deštruktívne operácie sú zakázané. Výsledky budú publikované bez návodov na zneužitie konkrétnych reálnych systémov.
+
 \section{Záver}\label{zaver}
 Záver zhrnie zistenia prehľadu a vyhodnotí, do akej miery môže štandardizovaný Web Pentest Harness podporiť objektívne porovnávanie AI agentov.
 
